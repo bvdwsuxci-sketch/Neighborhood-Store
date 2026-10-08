@@ -1,258 +1,712 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>متجر الحي</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#eef2f5;--surface:#fff;--ink:#16232b;--muted:#5d6b75;--line:#d3dce3;--brand:#0f5c4d;--brand-ink:#fff;--accent:#f2a900;--danger:#b3261e;--ok:#1b7f4b;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a20;--surface:#17252d;--ink:#e8eef2;--muted:#9fb0ba;--line:#2a3b45;--brand:#3fb89a;--brand-ink:#06201a;--accent:#f2b632;--danger:#ff8a80;--ok:#6fd49b}}
-:root[data-theme="dark"]{--bg:#0f1a20;--surface:#17252d;--ink:#e8eef2;--muted:#9fb0ba;--line:#2a3b45;--brand:#3fb89a;--brand-ink:#06201a;--accent:#f2b632;--danger:#ff8a80;--ok:#6fd49b}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "IBM Plex Sans Arabic",Tahoma,system-ui,sans-serif}
-.wrap{max-width:720px;margin:0 auto;padding:16px}
-h1{font-size:1.6rem;margin:8px 0 2px;font-weight:700}
-.sub{margin:0 0 14px;color:var(--muted)}
-nav{display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:16px}
-nav button{flex:1;border:0;background:none;color:var(--muted);font:600 .95rem inherit;font-family:inherit;padding:10px 6px;border-radius:9px;cursor:pointer}
-nav button[aria-selected="true"]{background:var(--brand);color:var(--brand-ink)}
-.badge{display:inline-block;min-width:1.4em;padding:0 6px;margin-inline-start:4px;border-radius:99px;background:var(--accent);color:#2b1d00;font-size:.8rem}
-button,input{font-family:inherit;font-size:1rem}
-button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.btn{border:0;background:var(--brand);color:var(--brand-ink);font-weight:600;padding:9px 16px;border-radius:9px;cursor:pointer}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
-.btn.danger{color:var(--danger);border-color:var(--danger)}
-.btn.sm{padding:6px 12px;font-size:.9rem}
-input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink)}
-label{display:block;font-weight:600;font-size:.9rem;margin:10px 0 4px}
-details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}
-summary{cursor:pointer;font-weight:600}
-.grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
-@media (max-width:520px){.grid3{grid-template-columns:1fr}}
-ul{list-style:none;margin:0;padding:0}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
-.info{display:flex;flex-direction:column;min-width:0}
-.muted{color:var(--muted);font-size:.9rem}
-.acts{display:flex;gap:6px;flex-wrap:wrap}
-.empty{padding:28px 12px;text-align:center;color:var(--muted)}
-.msg{min-height:1.5em;margin:8px 0;color:var(--danger);font-weight:600}
-.receipt{background:var(--surface);border:1px solid var(--line);border-radius:4px 4px 14px 14px;padding:16px;margin-bottom:12px;position:relative;
-background-image:radial-gradient(circle at 8px 0,var(--bg) 6px,transparent 6.5px);background-size:16px 12px;background-repeat:repeat-x;background-position:0 -6px}
-.receipt .line{display:flex;justify-content:space-between;gap:10px;padding:5px 0}
-.receipt hr{border:0;border-top:2px dashed var(--line);margin:10px 0}
-.total{font-weight:700;font-size:1.15rem}
-.head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.chip{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid currentColor;font-size:.85rem;font-weight:600}
-.s-pending{color:#9a6b00}.s-paid{color:var(--brand)}.s-shipped{color:var(--ok)}.s-cancelled{color:var(--muted)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .s-pending{color:var(--accent)}}
-:root[data-theme="dark"] .s-pending{color:var(--accent)}
-.qty{display:flex;align-items:center;gap:8px}
-.qty button{width:34px;height:34px;padding:0}
-.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.filters .btn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.note{margin-top:20px;font-size:.85rem;color:var(--muted)}
-[hidden]{display:none!important}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saif Mohamed — Junior Backend Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="wrap">
-  <h1>متجر الحي</h1>
-  <p class="sub">منتجات وسلة وطلبات، نفس منطق الـ API.</p>
-  <nav role="tablist">
-    <button role="tab" data-tab="products" aria-selected="true">المنتجات</button>
-    <button role="tab" data-tab="cart" aria-selected="false">السلة<span class="badge" id="badge" hidden>0</span></button>
-    <button role="tab" data-tab="orders" aria-selected="false">الطلبات</button>
-  </nav>
 
-  <section id="products">
-    <input id="search" type="search" placeholder="ابحث عن منتج" aria-label="ابحث عن منتج">
-    <details>
-      <summary>إضافة منتج جديد</summary>
-      <div class="grid3">
-        <div><label for="pname">اسم المنتج</label><input id="pname"></div>
-        <div><label for="pprice">السعر</label><input id="pprice" type="number" min="0" step="any" inputmode="decimal"></div>
-        <div><label for="pstock">الكمية</label><input id="pstock" type="number" min="0" step="1" inputmode="numeric"></div>
-      </div>
-      <p class="msg" id="pmsg" role="alert"></p>
-      <button class="btn" data-act="addproduct">حفظ المنتج</button>
-    </details>
-    <ul id="plist" style="margin-top:12px"></ul>
-  </section>
+<div class="grid-bg"></div>
 
-  <section id="cart" hidden>
-    <div class="receipt">
-      <div class="head"><strong>طلب جديد</strong></div>
-      <label for="cname">اسم العميل</label>
-      <input id="cname" autocomplete="name">
-      <hr>
-      <div id="clines"></div>
-      <hr>
-      <div class="line total"><span>الإجمالي</span><span id="ctotal">0</span></div>
+<!-- NAV -->
+<nav class="navbar navbar-custom navbar-expand-md">
+  <div class="container">
+
+    <a class="brand" href="#home" data-page="home">
+      saif<span>.dev</span>
+    </a>
+
+    <button class="nav-toggle d-md-none" id="navToggle" aria-label="menu">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a class="nav-link active" href="#home" data-page="home">home</a>
+      <a class="nav-link" href="#about" data-page="about">about</a>
+      <a class="nav-link" href="#skills" data-page="skills">skills</a>
+      <a class="nav-link" href="#projects" data-page="projects">projects</a>
+      <a class="nav-link" href="#contact" data-page="contact">contact</a>
     </div>
-    <p class="msg" id="cmsg" role="alert"></p>
-    <button class="btn" data-act="place">إنشاء الطلب</button>
-  </section>
 
-  <section id="orders" hidden>
-    <div class="filters" id="filters"></div>
-    <div id="olist"></div>
-  </section>
+  </div>
+</nav>
 
-  <p class="note">نسخة تجريبية تعمل داخل المتصفح، والبيانات محفوظة على جهازك فقط. الباك اند الحقيقي (Express) في ملفات المشروع.</p>
-</div>
 
-<script>
-const KEY = "store-web-demo-v1";
-const seed = () => ({
-  products: [
-    { id: 1, name: "لابتوب", price: 15000, stock: 10 },
-    { id: 2, name: "ماوس", price: 250, stock: 50 },
-    { id: 3, name: "كيبورد", price: 600, stock: 30 }
-  ],
-  orders: [], nextProductId: 4, nextOrderId: 1
-});
-let db;
-try { db = JSON.parse(localStorage.getItem(KEY)); } catch (e) { db = null; }
-if (!db || !Array.isArray(db.products)) db = seed();
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {} };
+<!-- HOME PAGE -->
+<section class="page hero" id="home">
+  <div class="container">
 
-let cart = {}, tab = "products", filter = "all", q = "", delId = null;
-const $ = s => document.querySelector(s);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const money = n => Number(n).toLocaleString("ar-EG") + " ج.م";
-const num = n => Number(n).toLocaleString("ar-EG");
-const STATUS = { pending: "قيد الانتظار", paid: "مدفوع", shipped: "تم الشحن", cancelled: "ملغي" };
-const NEXT = { pending: ["paid", "cancelled"], paid: ["shipped", "cancelled"], shipped: [], cancelled: [] };
-const ACTION = { paid: "تم الدفع", shipped: "تم الشحن", cancelled: "إلغاء الطلب" };
-const prod = id => db.products.find(p => p.id === Number(id));
+    <div class="row align-items-center g-5">
 
-function go(t) {
-  tab = t;
-  document.querySelectorAll("nav button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === t));
-  ["products", "cart", "orders"].forEach(id => ($("#" + id).hidden = id !== t));
-  render();
-}
+      <div class="col-lg-7">
 
-function renderProducts() {
-  const list = db.products.filter(p => p.name.toLowerCase().includes(q.toLowerCase()));
-  $("#plist").innerHTML = list.length ? list.map(p => {
-    const inCart = cart[p.id] || 0;
-    const del = delId === p.id
-      ? `<button class="btn sm danger" data-act="delok" data-id="${p.id}">تأكيد الحذف</button>`
-      : `<button class="btn sm ghost danger" data-act="del" data-id="${p.id}">حذف</button>`;
-    return `<li class="row"><div class="info"><strong>${esc(p.name)}</strong>
-      <span class="muted">${money(p.price)}</span>
-      <span class="muted">${p.stock > 0 ? "المتاح " + num(p.stock) : "نفد من المخزون"}</span></div>
-      <div class="acts"><button class="btn sm" data-act="add" data-id="${p.id}" ${inCart >= p.stock ? "disabled" : ""}>أضف للسلة${inCart ? " (" + num(inCart) + ")" : ""}</button>${del}</div></li>`;
-  }).join("") : `<li class="empty">لا توجد منتجات مطابقة. أضف منتجًا من النموذج بالأعلى.</li>`;
-}
+        <div class="eyebrow">// junior backend developer</div>
 
-function cartTotals() {
-  let count = 0, total = 0;
-  for (const id in cart) { const p = prod(id); if (p) { count += cart[id]; total += cart[id] * p.price; } }
-  return { count, total };
-}
+        <h1>
+          Saif Mohamed<br>
+          builds things on the <span class="accent">server side.</span>
+        </h1>
 
-function renderCart() {
-  const ids = Object.keys(cart).filter(id => cart[id] > 0 && prod(id));
-  $("#clines").innerHTML = ids.length ? ids.map(id => {
-    const p = prod(id);
-    return `<div class="line"><div class="info"><strong>${esc(p.name)}</strong><span class="muted">${money(p.price)}</span></div>
-      <div class="qty"><button class="btn ghost" data-act="dec" data-id="${id}" aria-label="تقليل">−</button><strong>${num(cart[id])}</strong>
-      <button class="btn ghost" data-act="add" data-id="${id}" aria-label="زيادة" ${cart[id] >= p.stock ? "disabled" : ""}>+</button></div></div>`;
-  }).join("") : `<div class="empty">السلة فارغة. أضف منتجات من تبويب المنتجات.</div>`;
-  $("#ctotal").textContent = money(cartTotals().total);
-}
+        <p class="lead-text">
+          Junior backend developer focused on clean logic, solid data structures,
+          and APIs that don't fall over. Comfortable moving between C++, Python,
+          and JavaScript depending on what the problem actually needs — and
+          building the interfaces on top with HTML, CSS, and Bootstrap.
+        </p>
 
-function renderOrders() {
-  const keys = ["all", ...Object.keys(STATUS)];
-  $("#filters").innerHTML = keys.map(k =>
-    `<button class="btn sm ghost ${filter === k ? "on" : ""}" data-act="filter" data-f="${k}">${k === "all" ? "الكل" : STATUS[k]}</button>`).join("");
-  const list = db.orders.filter(o => filter === "all" || o.status === filter).slice().reverse();
-  $("#olist").innerHTML = list.length ? list.map(o => `
-    <div class="receipt">
-      <div class="head"><strong>طلب رقم ${num(o.id)}</strong><span class="chip s-${o.status}">${STATUS[o.status]}</span></div>
-      <div class="muted">${esc(o.customerName)} · ${new Date(o.createdAt).toLocaleString("ar-EG", { dateStyle: "medium", timeStyle: "short" })}</div>
-      <hr>
-      ${o.items.map(i => `<div class="line"><span>${esc(i.name)} × ${num(i.quantity)}</span><span>${money(i.lineTotal)}</span></div>`).join("")}
-      <hr>
-      <div class="line total"><span>الإجمالي</span><span>${money(o.total)}</span></div>
-      ${NEXT[o.status].length ? `<div class="acts" style="margin-top:8px">${NEXT[o.status].map(s =>
-        `<button class="btn sm ${s === "cancelled" ? "ghost danger" : ""}" data-act="status" data-id="${o.id}" data-s="${s}">${ACTION[s]}</button>`).join("")}</div>` : ""}
-    </div>`).join("") : `<div class="empty">لا توجد طلبات هنا بعد.</div>`;
-}
+        <div class="d-flex gap-3 mt-4 flex-wrap">
 
-function render() {
-  const { count } = cartTotals();
-  $("#badge").hidden = !count; $("#badge").textContent = num(count);
-  if (tab === "products") renderProducts();
-  if (tab === "cart") renderCart();
-  if (tab === "orders") renderOrders();
-}
+          <a href="#projects" data-page="projects" class="btn-amber page-link">
+            View Projects
+          </a>
 
-function addProduct() {
-  const name = $("#pname").value.trim(), price = Number($("#pprice").value), stock = Number($("#pstock").value);
-  const msg = m => ($("#pmsg").textContent = m);
-  if (!name) return msg("اكتب اسم المنتج.");
-  if ($("#pprice").value === "" || !(price >= 0)) return msg("السعر لازم يكون رقمًا صفرًا أو أكبر.");
-  if ($("#pstock").value === "" || !Number.isInteger(stock) || stock < 0) return msg("الكمية لازم تكون عددًا صحيحًا صفرًا أو أكبر.");
-  db.products.push({ id: db.nextProductId++, name, price, stock });
-  save(); msg("");
-  ["#pname", "#pprice", "#pstock"].forEach(s => ($(s).value = ""));
-  render();
-}
+          <a href="#contact" data-page="contact" class="btn-outline-custom page-link">
+            Get In Touch
+          </a>
 
-function placeOrder() {
-  const msg = m => ($("#cmsg").textContent = m);
-  const name = $("#cname").value.trim();
-  const ids = Object.keys(cart).map(Number).filter(id => cart[id] > 0);
-  if (!name) return msg("اكتب اسم العميل أولًا.");
-  if (!ids.length) return msg("السلة فارغة. أضف منتجات أولًا.");
-  const lines = [];
-  for (const id of ids) {
-    const p = prod(id);
-    if (!p) return msg("منتج في السلة لم يعد موجودًا. احذفه من السلة وحاول مجددًا.");
-    if (p.stock < cart[id]) return msg(`المخزون لا يكفي لـ "${p.name}". المتاح ${num(p.stock)}.`);
-    lines.push([p, cart[id]]);
-  }
-  const items = lines.map(([p, qty]) => {
-    p.stock -= qty;
-    return { productId: p.id, name: p.name, unitPrice: p.price, quantity: qty, lineTotal: p.price * qty };
-  });
-  db.orders.push({ id: db.nextOrderId++, customerName: name, items, total: items.reduce((s, i) => s + i.lineTotal, 0), status: "pending", createdAt: new Date().toISOString() });
-  save(); cart = {}; $("#cname").value = ""; msg("");
-  filter = "all"; go("orders");
-}
+        </div>
 
-function setStatus(id, status) {
-  const o = db.orders.find(x => x.id === Number(id));
-  if (!o || !NEXT[o.status].includes(status)) return;
-  if (status === "cancelled") o.items.forEach(i => { const p = prod(i.productId); if (p) p.stock += i.quantity; });
-  o.status = status; save(); render();
-}
+        <div class="stat-row mt-5">
 
-document.addEventListener("click", e => {
-  const t = e.target.closest("[data-tab],[data-act]");
-  if (!t) return;
-  if (t.dataset.tab) return go(t.dataset.tab);
-  const id = t.dataset.id;
-  switch (t.dataset.act) {
-    case "add": { const p = prod(id); if (p && (cart[id] || 0) < p.stock) cart[id] = (cart[id] || 0) + 1; render(); break; }
-    case "dec": cart[id] = Math.max(0, (cart[id] || 0) - 1); if (!cart[id]) delete cart[id]; render(); break;
-    case "del": delId = Number(id); render(); break;
-    case "delok": db.products = db.products.filter(p => p.id !== Number(id)); delete cart[id]; delId = null; save(); render(); break;
-    case "addproduct": addProduct(); break;
-    case "place": placeOrder(); break;
-    case "filter": filter = t.dataset.f; render(); break;
-    case "status": setStatus(id, t.dataset.s); break;
-  }
-});
-$("#search").addEventListener("input", e => { q = e.target.value; render(); });
-render();
-</script>
+          <div class="stat">
+            <b>3</b>
+            <span>core languages</span>
+          </div>
+
+          <div class="stat">
+            <b>6+</b>
+            <span>tools & frameworks</span>
+          </div>
+
+          <div class="stat">
+            <b>2</b>
+            <span>projects shipped</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-5">
+
+        <div class="terminal">
+
+          <div class="terminal-head">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">saif@backend: ~</span>
+          </div>
+
+          <div class="terminal-body" id="termBody"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ABOUT PAGE -->
+<section class="page" id="about">
+  <div class="container">
+
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-4 text-center text-lg-start">
+
+        <div class="avatar-wrap mx-auto mx-lg-0">
+          <img src="image.png" alt="Saif Mohamed" class="avatar-img" id="avatarImg">
+        </div>
+
+        <div class="info-list mt-4">
+
+          <div class="info-row">
+            <span class="info-label">Name</span>
+            <span class="info-val">Saif Mohamed</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Role</span>
+            <span class="info-val">Junior Backend Developer</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Based in</span>
+            <span class="info-val">Egypt</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Status</span>
+            <span class="info-val status-open">Open to work</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-8">
+
+        <div class="section-label">about</div>
+
+        <h2 class="section-title">
+          Still early, already building.
+        </h2>
+
+        <p class="about-text">
+          I'm Saif — a junior backend developer who enjoys the part of software
+          most people never see, the logic underneath the interface. I like
+          reasoning through algorithms and memory management in C++, moving fast
+          in Python for scripts and prototypes, and using JavaScript to connect
+          the backend to something people can actually click on. On the front end
+          I keep things simple and structured with HTML, CSS, and Bootstrap.
+        </p>
+
+        <p class="about-text">
+          I'm not chasing a single framework — I'm building a foundation.
+          Right now that means writing backend code that's readable, testable,
+          and doesn't do anything clever just to look clever, while getting
+          comfortable with the tools every backend engineer ends up using:
+          version control, databases, and real APIs.
+        </p>
+
+
+        <div class="section-label mt-5">
+          education
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-title">
+                Computer Science / Related Degree
+              </div>
+
+              <div class="timeline-sub">
+                University Name — replace with yours
+              </div>
+
+              <div class="timeline-desc">
+                Coursework in data structures, algorithms, OOP (C++), and databases.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="section-label mt-5">
+          experience
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-title">
+                Junior Backend Developer
+              </div>
+
+              <div class="timeline-sub">
+                Company / Internship name — replace with yours
+              </div>
+
+              <div class="timeline-desc">
+                Worked on backend logic, and picked up habits around clean,
+                testable code.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-title">
+                Self-Directed Projects
+              </div>
+
+              <div class="timeline-sub">
+                2025 — Present
+              </div>
+
+              <div class="timeline-desc">
+                Built small backend and full-stack projects in C++, Python,
+                and JavaScript to practice real-world problem solving.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SKILLS PAGE -->
+<section class="page" id="skills">
+  <div class="container">
+
+    <div class="section-label">
+      skills
+    </div>
+
+    <h2 class="section-title">
+      What I work with.
+    </h2>
+
+    <p class="about-text mb-5">
+      A snapshot of the languages and tools I use most,
+      and where I'd rate my current comfort level with each.
+    </p>
+
+
+    <div class="row g-4">
+
+
+      <div class="col-md-4">
+
+        <div class="skill-card">
+
+          <div class="cat-label">
+            Core Languages
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>C++</span>
+              <span>75%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:75%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>Python</span>
+              <span>70%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:70%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>JavaScript</span>
+              <span>65%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:65%"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="skill-card">
+
+          <div class="cat-label">
+            Web Foundations
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>HTML5</span>
+              <span>85%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:85%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>CSS3</span>
+              <span>80%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:80%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>Bootstrap</span>
+              <span>78%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:78%"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="skill-card">
+
+          <div class="cat-label">
+            Currently Learning
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>SQL</span>
+              <span>50%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:50%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-bar-item">
+
+            <div class="skill-bar-top">
+              <span>Git</span>
+              <span>60%</span>
+            </div>
+
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width:60%"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-label mt-5">
+      tools & workflow
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-3">
+
+      <span class="skill-pill">
+        <span class="bar"></span>VS Code
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>Git & GitHub
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>Linux / Bash
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>MySQL
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>Postman
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>OOP
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>Data Structures
+      </span>
+
+      <span class="skill-pill">
+        <span class="bar"></span>Algorithms
+      </span>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROJECTS PAGE -->
+<section class="page" id="projects">
+  <div class="container">
+
+    <div class="section-label">
+      projects
+    </div>
+
+    <h2 class="section-title">
+      Selected work.
+    </h2>
+
+    <p class="about-text mb-5">
+      A selection of backend projects built with Node.js, Express,
+      and REST APIs.
+    </p>
+
+
+    <div class="row g-4">
+
+
+      <!-- TODO API -->
+      <div class="col-md-6">
+
+        <div class="project-card">
+
+          <div class="project-num">
+            01
+          </div>
+
+          <h3>
+            Todo API
+          </h3>
+
+          <p>
+            A REST API for managing tasks with Node.js and Express.
+            It supports creating, viewing, updating, completing,
+            and deleting tasks.
+          </p>
+
+          <div class="tag-row">
+
+            <span class="tag">
+              Node.js
+            </span>
+
+            <span class="tag">
+              Express.js
+            </span>
+
+            <span class="tag">
+              REST API
+            </span>
+
+            <span class="tag">
+              JSON
+            </span>
+
+          </div>
+
+          <div class="mt-3">
+
+            <a
+              href="https://github.com/bvdwsuxci-sketch/Todo-API"
+              target="_blank"
+              class="tag"
+            >
+              View on GitHub →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- NEIGHBORHOOD STORE -->
+      <div class="col-md-6">
+
+        <div class="project-card">
+
+          <div class="project-num">
+            02
+          </div>
+
+          <h3>
+            Neighborhood Store
+          </h3>
+
+          <p>
+            A small store management system for products and customer
+            orders. It includes product management, stock checking,
+            order creation, and order status management.
+          </p>
+
+          <div class="tag-row">
+
+            <span class="tag">
+              Node.js
+            </span>
+
+            <span class="tag">
+              Express.js
+            </span>
+
+            <span class="tag">
+              REST API
+            </span>
+
+            <span class="tag">
+              JSON
+            </span>
+
+          </div>
+
+          <div class="mt-3">
+
+            <a
+              href="https://github.com/bvdwsuxci-sketch/Neighborhood-Store"
+              target="_blank"
+              class="tag"
+            >
+              View on GitHub →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT PAGE -->
+<section class="page" id="contact">
+
+  <div class="container">
+
+    <div class="contact-box">
+
+      <div
+        class="section-label"
+        style="justify-content:center;"
+      >
+        contact
+      </div>
+
+      <h2
+        class="section-title"
+        style="margin-bottom:0.5rem;"
+      >
+        Let's talk backend.
+      </h2>
+
+      <p
+        class="about-text mx-auto"
+        style="text-align:center;"
+      >
+        Open to junior backend roles and internships.
+        Reach out below.
+      </p>
+
+
+      <div class="contact-links">
+
+        <a
+          href="mailto:bvdwsuxci@gmail.com"
+          target="_blank"
+        >
+          email
+        </a>
+
+        <a
+          href="https://github.com/bvdwsuxci-sketch"
+          target="_blank"
+        >
+          github
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/saif-mohamed-101193416/"
+          target="_blank"
+        >
+          linkedin
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+  built by Saif Mohamed
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
+```
