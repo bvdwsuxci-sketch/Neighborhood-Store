@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>متجر الحي</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f5;--surface:#fff;--ink:#16232b;--muted:#5d6b75;--line:#d3dce3;--brand:#0f5c4d;--brand-ink:#fff;--accent:#f2a900;--danger:#b3261e;--ok:#1b7f4b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a20;--surface:#17252d;--ink:#e8eef2;--muted:#9fb0ba;--line:#2a3b45;--brand:#3fb89a;--brand-ink:#06201a;--accent:#f2b632;--danger:#ff8a80;--ok:#6fd49b}}
+:root[data-theme="dark"]{--bg:#0f1a20;--surface:#17252d;--ink:#e8eef2;--muted:#9fb0ba;--line:#2a3b45;--brand:#3fb89a;--brand-ink:#06201a;--accent:#f2b632;--danger:#ff8a80;--ok:#6fd49b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "IBM Plex Sans Arabic",Tahoma,system-ui,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.6rem;margin:8px 0 2px;font-weight:700}
+.sub{margin:0 0 14px;color:var(--muted)}
+nav{display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:16px}
+nav button{flex:1;border:0;background:none;color:var(--muted);font:600 .95rem inherit;font-family:inherit;padding:10px 6px;border-radius:9px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--brand);color:var(--brand-ink)}
+.badge{display:inline-block;min-width:1.4em;padding:0 6px;margin-inline-start:4px;border-radius:99px;background:var(--accent);color:#2b1d00;font-size:.8rem}
+button,input{font-family:inherit;font-size:1rem}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{border:0;background:var(--brand);color:var(--brand-ink);font-weight:600;padding:9px 16px;border-radius:9px;cursor:pointer}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn.danger{color:var(--danger);border-color:var(--danger)}
+.btn.sm{padding:6px 12px;font-size:.9rem}
+input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink)}
+label{display:block;font-weight:600;font-size:.9rem;margin:10px 0 4px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}
+summary{cursor:pointer;font-weight:600}
+.grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+@media (max-width:520px){.grid3{grid-template-columns:1fr}}
+ul{list-style:none;margin:0;padding:0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.info{display:flex;flex-direction:column;min-width:0}
+.muted{color:var(--muted);font-size:.9rem}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.empty{padding:28px 12px;text-align:center;color:var(--muted)}
+.msg{min-height:1.5em;margin:8px 0;color:var(--danger);font-weight:600}
+.receipt{background:var(--surface);border:1px solid var(--line);border-radius:4px 4px 14px 14px;padding:16px;margin-bottom:12px;position:relative;
+background-image:radial-gradient(circle at 8px 0,var(--bg) 6px,transparent 6.5px);background-size:16px 12px;background-repeat:repeat-x;background-position:0 -6px}
+.receipt .line{display:flex;justify-content:space-between;gap:10px;padding:5px 0}
+.receipt hr{border:0;border-top:2px dashed var(--line);margin:10px 0}
+.total{font-weight:700;font-size:1.15rem}
+.head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid currentColor;font-size:.85rem;font-weight:600}
+.s-pending{color:#9a6b00}.s-paid{color:var(--brand)}.s-shipped{color:var(--ok)}.s-cancelled{color:var(--muted)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .s-pending{color:var(--accent)}}
+:root[data-theme="dark"] .s-pending{color:var(--accent)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:34px;height:34px;padding:0}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.filters .btn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note{margin-top:20px;font-size:.85rem;color:var(--muted)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>متجر الحي</h1>
+  <p class="sub">منتجات وسلة وطلبات، نفس منطق الـ API.</p>
+  <nav role="tablist">
+    <button role="tab" data-tab="products" aria-selected="true">المنتجات</button>
+    <button role="tab" data-tab="cart" aria-selected="false">السلة<span class="badge" id="badge" hidden>0</span></button>
+    <button role="tab" data-tab="orders" aria-selected="false">الطلبات</button>
+  </nav>
+
+  <section id="products">
+    <input id="search" type="search" placeholder="ابحث عن منتج" aria-label="ابحث عن منتج">
+    <details>
+      <summary>إضافة منتج جديد</summary>
+      <div class="grid3">
+        <div><label for="pname">اسم المنتج</label><input id="pname"></div>
+        <div><label for="pprice">السعر</label><input id="pprice" type="number" min="0" step="any" inputmode="decimal"></div>
+        <div><label for="pstock">الكمية</label><input id="pstock" type="number" min="0" step="1" inputmode="numeric"></div>
+      </div>
+      <p class="msg" id="pmsg" role="alert"></p>
+      <button class="btn" data-act="addproduct">حفظ المنتج</button>
+    </details>
+    <ul id="plist" style="margin-top:12px"></ul>
+  </section>
+
+  <section id="cart" hidden>
+    <div class="receipt">
+      <div class="head"><strong>طلب جديد</strong></div>
+      <label for="cname">اسم العميل</label>
+      <input id="cname" autocomplete="name">
+      <hr>
+      <div id="clines"></div>
+      <hr>
+      <div class="line total"><span>الإجمالي</span><span id="ctotal">0</span></div>
+    </div>
+    <p class="msg" id="cmsg" role="alert"></p>
+    <button class="btn" data-act="place">إنشاء الطلب</button>
+  </section>
+
+  <section id="orders" hidden>
+    <div class="filters" id="filters"></div>
+    <div id="olist"></div>
+  </section>
+
+  <p class="note">نسخة تجريبية تعمل داخل المتصفح، والبيانات محفوظة على جهازك فقط. الباك اند الحقيقي (Express) في ملفات المشروع.</p>
+</div>
+
+<script>
+const KEY = "store-web-demo-v1";
+const seed = () => ({
+  products: [
+    { id: 1, name: "لابتوب", price: 15000, stock: 10 },
+    { id: 2, name: "ماوس", price: 250, stock: 50 },
+    { id: 3, name: "كيبورد", price: 600, stock: 30 }
+  ],
+  orders: [], nextProductId: 4, nextOrderId: 1
+});
+let db;
+try { db = JSON.parse(localStorage.getItem(KEY)); } catch (e) { db = null; }
+if (!db || !Array.isArray(db.products)) db = seed();
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {} };
+
+let cart = {}, tab = "products", filter = "all", q = "", delId = null;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const money = n => Number(n).toLocaleString("ar-EG") + " ج.م";
+const num = n => Number(n).toLocaleString("ar-EG");
+const STATUS = { pending: "قيد الانتظار", paid: "مدفوع", shipped: "تم الشحن", cancelled: "ملغي" };
+const NEXT = { pending: ["paid", "cancelled"], paid: ["shipped", "cancelled"], shipped: [], cancelled: [] };
+const ACTION = { paid: "تم الدفع", shipped: "تم الشحن", cancelled: "إلغاء الطلب" };
+const prod = id => db.products.find(p => p.id === Number(id));
+
+function go(t) {
+  tab = t;
+  document.querySelectorAll("nav button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === t));
+  ["products", "cart", "orders"].forEach(id => ($("#" + id).hidden = id !== t));
+  render();
+}
+
+function renderProducts() {
+  const list = db.products.filter(p => p.name.toLowerCase().includes(q.toLowerCase()));
+  $("#plist").innerHTML = list.length ? list.map(p => {
+    const inCart = cart[p.id] || 0;
+    const del = delId === p.id
+      ? `<button class="btn sm danger" data-act="delok" data-id="${p.id}">تأكيد الحذف</button>`
+      : `<button class="btn sm ghost danger" data-act="del" data-id="${p.id}">حذف</button>`;
+    return `<li class="row"><div class="info"><strong>${esc(p.name)}</strong>
+      <span class="muted">${money(p.price)}</span>
+      <span class="muted">${p.stock > 0 ? "المتاح " + num(p.stock) : "نفد من المخزون"}</span></div>
+      <div class="acts"><button class="btn sm" data-act="add" data-id="${p.id}" ${inCart >= p.stock ? "disabled" : ""}>أضف للسلة${inCart ? " (" + num(inCart) + ")" : ""}</button>${del}</div></li>`;
+  }).join("") : `<li class="empty">لا توجد منتجات مطابقة. أضف منتجًا من النموذج بالأعلى.</li>`;
+}
+
+function cartTotals() {
+  let count = 0, total = 0;
+  for (const id in cart) { const p = prod(id); if (p) { count += cart[id]; total += cart[id] * p.price; } }
+  return { count, total };
+}
+
+function renderCart() {
+  const ids = Object.keys(cart).filter(id => cart[id] > 0 && prod(id));
+  $("#clines").innerHTML = ids.length ? ids.map(id => {
+    const p = prod(id);
+    return `<div class="line"><div class="info"><strong>${esc(p.name)}</strong><span class="muted">${money(p.price)}</span></div>
+      <div class="qty"><button class="btn ghost" data-act="dec" data-id="${id}" aria-label="تقليل">−</button><strong>${num(cart[id])}</strong>
+      <button class="btn ghost" data-act="add" data-id="${id}" aria-label="زيادة" ${cart[id] >= p.stock ? "disabled" : ""}>+</button></div></div>`;
+  }).join("") : `<div class="empty">السلة فارغة. أضف منتجات من تبويب المنتجات.</div>`;
+  $("#ctotal").textContent = money(cartTotals().total);
+}
+
+function renderOrders() {
+  const keys = ["all", ...Object.keys(STATUS)];
+  $("#filters").innerHTML = keys.map(k =>
+    `<button class="btn sm ghost ${filter === k ? "on" : ""}" data-act="filter" data-f="${k}">${k === "all" ? "الكل" : STATUS[k]}</button>`).join("");
+  const list = db.orders.filter(o => filter === "all" || o.status === filter).slice().reverse();
+  $("#olist").innerHTML = list.length ? list.map(o => `
+    <div class="receipt">
+      <div class="head"><strong>طلب رقم ${num(o.id)}</strong><span class="chip s-${o.status}">${STATUS[o.status]}</span></div>
+      <div class="muted">${esc(o.customerName)} · ${new Date(o.createdAt).toLocaleString("ar-EG", { dateStyle: "medium", timeStyle: "short" })}</div>
+      <hr>
+      ${o.items.map(i => `<div class="line"><span>${esc(i.name)} × ${num(i.quantity)}</span><span>${money(i.lineTotal)}</span></div>`).join("")}
+      <hr>
+      <div class="line total"><span>الإجمالي</span><span>${money(o.total)}</span></div>
+      ${NEXT[o.status].length ? `<div class="acts" style="margin-top:8px">${NEXT[o.status].map(s =>
+        `<button class="btn sm ${s === "cancelled" ? "ghost danger" : ""}" data-act="status" data-id="${o.id}" data-s="${s}">${ACTION[s]}</button>`).join("")}</div>` : ""}
+    </div>`).join("") : `<div class="empty">لا توجد طلبات هنا بعد.</div>`;
+}
+
+function render() {
+  const { count } = cartTotals();
+  $("#badge").hidden = !count; $("#badge").textContent = num(count);
+  if (tab === "products") renderProducts();
+  if (tab === "cart") renderCart();
+  if (tab === "orders") renderOrders();
+}
+
+function addProduct() {
+  const name = $("#pname").value.trim(), price = Number($("#pprice").value), stock = Number($("#pstock").value);
+  const msg = m => ($("#pmsg").textContent = m);
+  if (!name) return msg("اكتب اسم المنتج.");
+  if ($("#pprice").value === "" || !(price >= 0)) return msg("السعر لازم يكون رقمًا صفرًا أو أكبر.");
+  if ($("#pstock").value === "" || !Number.isInteger(stock) || stock < 0) return msg("الكمية لازم تكون عددًا صحيحًا صفرًا أو أكبر.");
+  db.products.push({ id: db.nextProductId++, name, price, stock });
+  save(); msg("");
+  ["#pname", "#pprice", "#pstock"].forEach(s => ($(s).value = ""));
+  render();
+}
+
+function placeOrder() {
+  const msg = m => ($("#cmsg").textContent = m);
+  const name = $("#cname").value.trim();
+  const ids = Object.keys(cart).map(Number).filter(id => cart[id] > 0);
+  if (!name) return msg("اكتب اسم العميل أولًا.");
+  if (!ids.length) return msg("السلة فارغة. أضف منتجات أولًا.");
+  const lines = [];
+  for (const id of ids) {
+    const p = prod(id);
+    if (!p) return msg("منتج في السلة لم يعد موجودًا. احذفه من السلة وحاول مجددًا.");
+    if (p.stock < cart[id]) return msg(`المخزون لا يكفي لـ "${p.name}". المتاح ${num(p.stock)}.`);
+    lines.push([p, cart[id]]);
+  }
+  const items = lines.map(([p, qty]) => {
+    p.stock -= qty;
+    return { productId: p.id, name: p.name, unitPrice: p.price, quantity: qty, lineTotal: p.price * qty };
+  });
+  db.orders.push({ id: db.nextOrderId++, customerName: name, items, total: items.reduce((s, i) => s + i.lineTotal, 0), status: "pending", createdAt: new Date().toISOString() });
+  save(); cart = {}; $("#cname").value = ""; msg("");
+  filter = "all"; go("orders");
+}
+
+function setStatus(id, status) {
+  const o = db.orders.find(x => x.id === Number(id));
+  if (!o || !NEXT[o.status].includes(status)) return;
+  if (status === "cancelled") o.items.forEach(i => { const p = prod(i.productId); if (p) p.stock += i.quantity; });
+  o.status = status; save(); render();
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-tab],[data-act]");
+  if (!t) return;
+  if (t.dataset.tab) return go(t.dataset.tab);
+  const id = t.dataset.id;
+  switch (t.dataset.act) {
+    case "add": { const p = prod(id); if (p && (cart[id] || 0) < p.stock) cart[id] = (cart[id] || 0) + 1; render(); break; }
+    case "dec": cart[id] = Math.max(0, (cart[id] || 0) - 1); if (!cart[id]) delete cart[id]; render(); break;
+    case "del": delId = Number(id); render(); break;
+    case "delok": db.products = db.products.filter(p => p.id !== Number(id)); delete cart[id]; delId = null; save(); render(); break;
+    case "addproduct": addProduct(); break;
+    case "place": placeOrder(); break;
+    case "filter": filter = t.dataset.f; render(); break;
+    case "status": setStatus(id, t.dataset.s); break;
+  }
+});
+$("#search").addEventListener("input", e => { q = e.target.value; render(); });
+render();
+</script>
+</body>
+</html>
